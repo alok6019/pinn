@@ -4,7 +4,7 @@
 
 Visualization of the PINN training process.
 
-![Training Progress](training_progress.png)
+![Training Progress](training progress.png)
 
 ---
 
@@ -20,4 +20,4 @@ Evolution of the total loss, physics loss, and data loss during training.
 
 Convergence of the estimated mass (**m**), damping coefficient (**c**), and spring stiffness (**k**) toward their true values.
 
-![Parameter Convergence](parameter_convergence.png)
+![Parameter Convergence](Parameter_Convergence.png)

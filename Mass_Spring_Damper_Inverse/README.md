@@ -96,7 +96,7 @@ The repository includes
 
 ## Requirements
 
-- MATLAB R2024a or later
+- MATLAB R2026a
 - Deep Learning Toolbox
 
 ---

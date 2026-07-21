@@ -1,16 +1,10 @@
-# Physics-Informed Neural Network (PINN) for Inverse Mass-Spring-Damper Parameter Estimation
+# Physics-Informed Neural Network (PINN) for Inverse Mass-Spring-Damper System
 
 ## Overview
 
-This project demonstrates the application of a Physics-Informed Neural Network (PINN) for solving the inverse problem of a forced mass-spring-damper system using MATLAB.
+This project implements a **Physics-Informed Neural Network (PINN)** in **MATLAB** to solve the inverse problem of a forced mass-spring-damper system.
 
-The objective is to estimate the unknown physical parameters:
-
-- Mass (m)
-- Damping coefficient (c)
-- Spring stiffness (k)
-
-from displacement measurements while enforcing the governing differential equation during training.
+The objective is to estimate the unknown physical parameters (**mass, damping coefficient, and spring stiffness**) from displacement measurements while satisfying the governing differential equation.
 
 ---
 
@@ -20,7 +14,7 @@ from displacement measurements while enforcing the governing differential equati
 m\ddot{x}+c\dot{x}+kx=F(t)
 \]
 
-where
+where the external excitation is
 
 \[
 F(t)=10\sin(2t)
@@ -28,76 +22,93 @@ F(t)=10\sin(2t)
 
 ---
 
-## Features
+## Objectives
 
-- MATLAB Deep Learning Toolbox implementation
-- Physics-informed loss function
-- Automatic differentiation
-- Simultaneous estimation of m, c and k
-- Training loss visualization
-- Parameter convergence plots
+- Estimate unknown parameters:
+  - Mass (m)
+  - Damping coefficient (c)
+  - Spring stiffness (k)
+- Incorporate governing physics into the loss function.
+- Compare estimated parameters with their true values.
+- Visualize training loss and parameter convergence.
 
 ---
 
-## Project Files
+## Repository Contents
 
 | File | Description |
 |------|-------------|
-| buildPINN.m | Main training script |
-| generateData.m | Synthetic data generation |
-| massSpringDamperData.mat | Training dataset |
-| figures/ | Output plots |
+| `inversemain.m` | Main script for training the inverse PINN |
+| `data_gen.m` | MATLAB script for generating synthetic training data |
+| `Data Gen(for Testing).mlx` | Live Script for data generation and visualization |
+| `main.mlx` | MATLAB Live Script demonstrating the complete workflow |
+| `README.md` | Project documentation |
 
 ---
 
-## Neural Network
+## Neural Network Architecture
 
-- Fully Connected Neural Network
+- Input Features: Time and External Force
+- Output: Displacement
 - Hidden Layers: 4
 - Neurons per Layer: 128
-- Activation: tanh
+- Activation Function: tanh
+- Framework: MATLAB Deep Learning Toolbox
 
 ---
 
-## Training Parameters
+## Training Details
 
 | Parameter | Value |
 |-----------|------:|
 | Optimizer | Adam |
 | Learning Rate | 0.001 |
-| Iterations | 3000 |
+| Training Iterations | 3000 |
 | Collocation Points | 1000 |
 
 ---
 
-## Estimated Parameters
+## Physics-Informed Loss Function
 
-The PINN learns
+The total loss consists of:
 
-- Mass (m)
-- Damping coefficient (c)
-- Spring stiffness (k)
+- **Physics Loss:** Residual of the governing differential equation.
+- **Data Loss:** Error between predicted and measured displacement.
 
-using both measurement data and the governing physics.
+The combined loss is
+
+\[
+\mathcal{L}=\mathcal{L}_{Physics}+0.05\,\mathcal{L}_{Data}
+\]
 
 ---
 
 ## Results
 
-The repository includes
+The implementation provides:
 
-- Training loss history
-- Physics loss
-- Data loss
-- Parameter convergence
-- Estimated physical parameters
+- Estimation of Mass (m)
+- Estimation of Damping Coefficient (c)
+- Estimation of Spring Stiffness (k)
+- Training Loss History
+- Parameter Convergence Plots
 
 ---
 
 ## Requirements
 
-- MATLAB R2026a
+- MATLAB R2024a (or later)
 - Deep Learning Toolbox
+
+---
+
+## Applications
+
+- Structural Dynamics
+- System Identification
+- Parameter Estimation
+- Scientific Machine Learning (SciML)
+- Physics-Informed Neural Networks (PINNs)
 
 ---
 
@@ -107,6 +118,12 @@ The repository includes
 
 Department of Mechanical Engineering
 
-Motilal Nehru National Institute of Technology Allahabad
+Motilal Nehru National Institute of Technology (MNNIT) Allahabad
 
-Summer Research Internship – Physics-Informed Neural Networks (PINNs)
+Summer Research Internship on Physics-Informed Neural Networks (PINNs)
+
+---
+
+## License
+
+This project is released under the MIT License.

@@ -3,8 +3,9 @@
 ### Training Progress
 
 Visualization of the PINN training process.
+![Training Progress](training_progress.png)
 
-![Training Progress](training progress.png)
+
 
 ---
 
